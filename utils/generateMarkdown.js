@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// This function displays the image of the license that is chosen by the user on their README file
 function renderLicenseBadge(license) {
 
   switch (license) {
@@ -25,8 +24,7 @@ function renderLicenseBadge(license) {
     }
 };
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// This function displays the link of the license that is chosen by the user on their README file
 function renderLicenseLink(license) {
 
   switch (license) {
@@ -53,13 +51,18 @@ function renderLicenseLink(license) {
 
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// This function creates the License section of the README, if there is no license there will be no license section
 function renderLicenseSection(license) {
+
+  if (license == 'none') {
+    return `## License \nThis project has no license.`;
+  } else {
+    return `## License \nThis project is licensed under the ${renderLicenseLink(license)}.`;
+  }
 
 }
 
-// TODO: Create a function to generate markdown for README
+// This function returns content that will be displayed on the README file by using a single template literal
 function generateMarkdown(res) {
 
   return `# ${res.project}
@@ -82,23 +85,27 @@ function generateMarkdown(res) {
 
   ## Installation
   To install necessary dependencies, run the following command:
+  \`\`\`
   ${res.install}
+  \`\`\`
 
   ## Usage
   ${res.usage}
 
-  ## License
   \n${renderLicenseSection(res.license)}\n
 
   ## Contributing
   ${res.contribute}
 
   ## Test
+  To run the tests, run the following command:
+  \`\`\`
   ${res.tests}
+  \`\`\`
 
   ## Questions
   If you have any questions about the repo, open an issue or contact me directly:
-  * Please contact me at my [GitHub](https://github.com/${res.username})
+  * Please contact me directly at my [GitHub](https://github.com/${res.username})
   * Or contact me by email at [${res.email}](mailto:${res.email})`;
 
 }
