@@ -76,7 +76,6 @@ function generateMarkdown(res) {
   * [License](#license)
   * [Contributing](#contributing)
   * [Tests](#tests)
-  ${renderLicenseLink(res.license)}
   * [Questions](#questions)
 
   ## Description
